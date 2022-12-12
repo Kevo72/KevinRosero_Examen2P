@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KevinRosero_Examen2P.Views.RecargaKR"
+             Title="RecargaKR">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+        <Style TargetType="BoxView">
+            <Setter Property="Color" Value="Purple" />
+            <Setter Property="HeightRequest" Value="2" />
+            <Setter Property="Margin" Value="0, 5" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout>
+        <Label 
+            Text="Ingresa el numero de telefono:"
+            FontSize="20"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        <Entry x:Name="EntradaTelefonoKR" 
+               VerticalOptions="Center"
+               Placeholder="Ingresa el numero aqui"/>
+        <BoxView></BoxView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout Grid.Column="0">
+                <Picker x:Name="pickerKR"
+                    Title="Selecciona una operadora">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Movistar</x:String>
+                            <x:String>Claro</x:String>
+                            <x:String>CNT</x:String>
+                            <x:String>Tuenti</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1">
+                <Label Text="Seleccione el valor de la recarga?" />
+                <RadioButton x:Name="krValor3"
+                            Content="3"
+                            GroupName="Valores"
+                            CheckedChanged="OnRadioButtonCheckedChanged3KR" 
+                             IsChecked="True"/>
+                <RadioButton x:Name="krValor5"
+                            Content="5"
+                            GroupName="Valores"
+                            CheckedChanged="OnRadioButtonCheckedChanged5KR" />
+                <RadioButton 
+                            x:Name="krValor10"
+                            Content="10"
+                            GroupName="Valores"
+                            CheckedChanged="OnRadioButtonCheckedChanged10KR" />
+
+                <!--<RadioButton Content="3"
+                         Grid.Column="1"/>
+                <RadioButton Content="5"
+                         Grid.Column="1"/>
+                <RadioButton Content="10"
+                         Grid.Column="1"
+                 IsChecked="true" />-->
+            </VerticalStackLayout>
+            <BoxView
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2"></BoxView>
+
+            <Label Grid.Row="2"
+                   Grid.ColumnSpan="2"
+                   Text="Ha seleccionado una recarga de:"
+                   FontSize="20">
+            </Label>
+       </Grid>
+        <Button
+                    Text="Recargar"
+                    Clicked="btn_recargarKR" 
+                    Margin="10" WidthRequest="150"
+                    BorderWidth="2"/>
+
+    </VerticalStackLayout>
+</ContentPage>
